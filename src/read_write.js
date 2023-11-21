@@ -1,5 +1,5 @@
 import { google } from "googleapis";
-import { getSpreadSheetKeys, getKeys } from "./client.js";
+import { getSpreadSheetKeys, getKeys } from "./private_credentials.js";
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 
 const keys = await getKeys();

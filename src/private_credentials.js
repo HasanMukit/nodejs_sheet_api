@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import process from "process";
 
-const TOKEN_PATH = path.join(process.cwd(), "token.json");
 const KEYS_PATH = path.join(process.cwd(), "credentials.json");
 const SPREADSHEET_PATH = path.join(process.cwd(), "srpeadsheet.json");
 
