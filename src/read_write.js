@@ -22,7 +22,7 @@ const readData = async (spreadsheetId, range) => {
   } catch (error) {
     /* 
     !types of errors
-    * if spreadsheet is not shared
+    * if spreadsheet is not shared:
     [
       {
         message: "The caller does not have permission",
@@ -30,7 +30,7 @@ const readData = async (spreadsheetId, range) => {
         reason: "forbidden",
       },
     ];
-     * if spreadsheet id is wrong
+     * if spreadsheet id is wrong:
     [
       {
         message: 'Requested entity was not found.',
@@ -38,7 +38,7 @@ const readData = async (spreadsheetId, range) => {
         reason: 'notFound'
       }
     ]
-    * if range in unavailable mostly due to incorrect sheet name
+    * if range in unavailable mostly due to incorrect sheet name:
     [
       {
         message: 'Unable to parse range: Sheet3!A2:C415',
@@ -70,7 +70,7 @@ const writeData = async (spreadsheetId, range, data) => {
     !types of error
     * same scenario as reading data applies here
     * additionally  
-    * if spreadsheet is shared but write access is not given
+    * if spreadsheet is shared but write access is not given:
     [
       {
         message: 'The caller does not have permission',
@@ -78,7 +78,7 @@ const writeData = async (spreadsheetId, range, data) => {
         reason: 'forbidden'
       }
     ]
-    * if data and range do note have the same dimension
+    * if data and range do note have the same dimension:
     [
       {
         message:
