@@ -1,25 +1,25 @@
 import { google } from "googleapis";
-import { getSpreadSheetKeys, getKeys } from "./private_credentials.js";
+import keys from "../credentials.json" assert { type: "json" };
+import spreadsheetKeys from "../srpeadsheet.json" assert { type: "json" };
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 
-const keys = await getKeys();
 const client = new google.auth.JWT(
   keys.client_email,
-  null,
+  undefined,
   keys.private_key,
   SCOPES
 );
 const gsapi = google.sheets({ version: "v4", auth: client });
-const spreadsheetKeys = await getSpreadSheetKeys();
 
-const readData = async (spreadsheetId, range) => {
+const readRange = async (spreadsheetId: string, range: string) => {
   try {
     const result = await gsapi.spreadsheets.values.get({
       spreadsheetId: spreadsheetId,
       range: range,
     });
+    console.log("try:", result.status);
     return result.data.values;
-  } catch (error) {
+  } catch (error: any) {
     /* 
     !types of errors
     * if spreadsheet is not shared:
@@ -52,8 +52,13 @@ const readData = async (spreadsheetId, range) => {
   }
 };
 
-const writeData = async (spreadsheetId, range, data) => {
+const writeToRange = async (
+  spreadsheetId: string,
+  range: string,
+  data: string
+) => {
   if (!data) return;
+  console.log(data);
   const resource = {
     values: data,
   };
@@ -65,7 +70,7 @@ const writeData = async (spreadsheetId, range, data) => {
   };
   try {
     await gsapi.spreadsheets.values.update(opt);
-  } catch (error) {
+  } catch (error: any) {
     /* 
     !types of error
     * same scenario as reading data applies here
@@ -93,6 +98,7 @@ const writeData = async (spreadsheetId, range, data) => {
 };
 
 // reads data from Sheet1 and writes on Sheet2
-// returned data is a 2D array
-const data = await readData(spreadsheetKeys.spreadsheetId, "Sheet1!A2:C415");
-writeData(spreadsheetKeys.spreadsheetId, "Sheet2!A2:C400", data);
+// returned data is a 2D array  
+const data = await readRange(spreadsheetKeys.spreadsheetId, "Sheet1!A2:")
+console.log(data?.length);
+// writeData(spreadsheetKeys.spreadsheetId, "Sheet2!A2:C", data);
