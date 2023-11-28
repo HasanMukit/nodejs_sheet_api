@@ -1,3 +1,22 @@
+## RANGE Explanation
+### [TBD]
+
+## CREDENTIALS 
+
+* rename `credentials_example.json` file to `credentials.json` and populate the fields properly
+* rename `spreadsheet_example.json` file to `spreadsheet.json` and instert the spreadsheetId
+
+## COMMANDS
+
+* populate the example files: `append.ts`, `delete.ts`, `update.ts`, `read.ts`, `write.ts` 
+* execute the files with `npm command`
+* npm commands:
+  * `npm run read`
+  * `npm run write`
+  * `npm run append` 
+  * `npm run update` 
+  * `npm run delete` 
+
 ## ERRORS
 
 #### Sheet not shared
