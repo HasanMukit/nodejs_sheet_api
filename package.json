@@ -5,11 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "append": "tsc && node dist/src/append.js",
-    "read": "tsc && node dist/src/read.js",
-    "write": "tsc && node dist/src/write.js",
-    "update": "tsc && node dist/src/update.js",
-    "delete": "tsc && node dist/src/delete.js"
+    "append": "tsc && node dist/src/examples/append.js",
+    "read": "tsc && node dist/src/examples/read.js",
+    "write": "tsc && node dist/src/examples/write.js",
+    "update": "tsc && node dist/src/examples/update.js",
+    "delete": "tsc && node dist/src/examples/delete.js"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,6 @@
-import spreadsheetKeys from "../srpeadsheet.json" assert { type: "json" };
-import { appendRows } from "./functions.js";
-import { calculateRange } from "./range.js";
+import spreadsheetKeys from "../../srpeadsheet.json" assert { type: "json" };
+import { appendRows } from "../functions.js";
+import { calculateRange } from "../range.js";
 
 // 2D array which you want to append
 
