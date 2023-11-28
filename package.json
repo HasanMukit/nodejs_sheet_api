@@ -5,7 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node dist/src/read_write.js"
+    "append": "node dist/src/append.js",
+    "read": "node dist/src/read.js",
+    "write": "node dist/src/write.js",
+    "update": "node dist/src/update.js",
+    "delete": "node dist/src/delete.js"
   },
   "keywords": [],
   "author": "",
